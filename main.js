@@ -14,7 +14,8 @@ async function init(){
     data = await loadJSON();
     console.log(data);
 
-    markers = createMarkers(data);
+    markers = createMarkers(data, map);
+    console.log(markers)
 }
 
 init()

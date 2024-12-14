@@ -1,6 +1,6 @@
 
 function latLngStringToArray(str){
-    let arr = str.split(",");
+    let arr = str.split(",").reverse();
 
     return arr.map((val) => {
         return parseFloat(val);
