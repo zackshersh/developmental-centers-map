@@ -16,6 +16,7 @@ class Marker {
     generateElem(){
 
         const cont = document.createElement("div");
+        cont.classList.add("marker");
 
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute("width", params.markerSize*2); 
@@ -34,14 +35,27 @@ class Marker {
 
 
         // generating popup
-
         let p = document.createElement("p");
+        p.classList.add("popup-text")
         p.textContent = this.data["Name"];
 
         p.style.position = "absolute";
     
         p.style.color = "red"
         cont.appendChild(p);
+
+        cont.addEventListener("mouseenter", (e) => {
+            cont.classList.add("hovered-marker");
+
+            this.mapManager.setMarkerState(this.index, "hover");
+        })
+        cont.addEventListener("mouseleave", (e) => {
+            cont.classList.remove("hovered-marker");
+
+            this.mapManager.setMarkerState(null, null);
+        })
+
+
 
     
         return cont;

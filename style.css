@@ -1,0 +1,22 @@
+
+
+.container-hover-active circle {
+    opacity: 0.5
+}
+
+
+.popup-text {
+    opacity: 0;
+}
+
+.hovered-marker .popup-text {
+    opacity: 1;
+}
+
+.hovered-marker circle {
+    opacity: 1
+}
+
+
+
+

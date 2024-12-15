@@ -19,6 +19,11 @@ class MapManager {
 
         this.markers = [];
 
+        this.markerState = {
+            markerIndex: null,
+            mode: null
+        }
+
     }
 
     setData(data){
@@ -39,5 +44,30 @@ class MapManager {
 
             this.markers.push(newMarker);
         })
+    }
+
+    setMarkerState(index, mode){
+        console.log(index, mode);
+
+        console.log(this.map._container)
+
+        this.markerState = { markerIndex: index, mode: mode};
+
+        switch(mode){
+            case 'hover':
+                this.map._container.classList.add("container-hover-active");
+                this.updateMarkers();
+                break;
+            case 'select':
+                this.updateMarkers();
+                break;
+            case null:
+                this.map._container.classList.remove("container-hover-active");
+                this.map._container.classList.remove("container-select-active");
+                this.updateMarkers();
+
+                break;
+        }
+
     }
 }
