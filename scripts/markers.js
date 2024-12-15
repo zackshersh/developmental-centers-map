@@ -4,12 +4,13 @@ function generateMarker(){
     // const svg = document.createElementNS("svg");
     
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute("width", '50'); svg.setAttribute("height", '50');
+    svg.setAttribute("width", params.markerSize*2); 
+    svg.setAttribute("height", params.markerSize*2);
 
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute("cx",'25');
-    circle.setAttribute("cy",'25');
-    circle.setAttribute("r",'25');
+    circle.setAttribute("cx",params.markerSize);
+    circle.setAttribute("cy",params.markerSize);
+    circle.setAttribute("r",params.markerSize);
     circle.setAttribute("fill","red");
 
     // svg.innerHTML = "<circle"
@@ -22,6 +23,10 @@ function generateMarker(){
     return svg;
 }
 
+
+
+
+
 function createMarkers(data, map){
     const markers = [];
 
@@ -30,7 +35,7 @@ function createMarkers(data, map){
     let markerElem = generateMarker();
     console.log(markerElem)
 
-    data.forEach(location => {
+    data.forEach((location, index) => {
         
         if(!location["LOCATION: Latitude/Longitude"]) return;
         // console.log("------")
@@ -44,9 +49,11 @@ function createMarkers(data, map){
             return;
         }
 
+        let clonedMarker = markerElem.cloneNode(true);
+        clonedMarker.setAttribute("data-index", index);
 
         // console.log(arr)
-        const marker = new maplibregl.Marker({element: markerElem.cloneNode(true)})
+        const marker = new maplibregl.Marker({element: clonedMarker})
             .setLngLat(arr)
             .addTo(map)
 
