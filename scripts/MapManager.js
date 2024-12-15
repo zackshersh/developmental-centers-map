@@ -34,6 +34,10 @@ class MapManager {
             let arr = latLngStringToArray(location["LOCATION: Latitude/Longitude"]);
     
             if(!latLngIsValid(arr)) return;
+
+            let newMarker = new Marker(arr, i, this);
+
+            this.markers.push(newMarker);
         })
     }
 }
