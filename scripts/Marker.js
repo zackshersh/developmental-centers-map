@@ -17,6 +17,7 @@ class Marker {
 
         const cont = document.createElement("div");
         cont.classList.add("marker");
+        // cont.classList.add("not-focused")
 
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute("width", params.markerSize*2); 
@@ -40,19 +41,19 @@ class Marker {
         p.textContent = this.data["Name"];
 
         p.style.position = "absolute";
-    
         p.style.color = "red"
+        p.style.pointerEvents = "none"
         cont.appendChild(p);
 
         cont.addEventListener("mouseenter", (e) => {
-            cont.classList.add("hovered-marker");
+            cont.classList.add("marker-focused");
 
-            this.mapManager.setMarkerState(this.index, "hover");
+            this.mapManager.setFocusState(this.index, "hover");
         })
         cont.addEventListener("mouseleave", (e) => {
-            cont.classList.remove("hovered-marker");
+            cont.classList.remove("marker-focused");
 
-            this.mapManager.setMarkerState(null, null);
+            this.mapManager.setFocusState(null, null);
         })
 
 

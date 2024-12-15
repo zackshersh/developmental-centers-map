@@ -1,0 +1,45 @@
+
+
+.marker circle {
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* STYLES FOR OTHER MARKERS WHEN A MARKER IS FOCUSED */
+.container-hover-active .marker circle {
+    opacity: 0.5
+}
+
+/* STYLES FOR FOCUSED MARKER */
+.container-hover-active .marker-focused circle {
+    opacity: 1;
+    fill: blue;
+}
+
+.popup-text {
+    
+}
+
+.container-hover-active .marker-focused .popup-text {
+    opacity: 1
+}
+
+
+
+
+.popup-text {
+    opacity: 0;
+}
+
+/* .hovered-marker .popup-text {
+    opacity: 1;
+}
+
+.hovered-marker circle {
+    opacity: 1
+} */
+
+
+
+
