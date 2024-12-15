@@ -1,3 +1,11 @@
+.maplibregl-canvas {
+  cursor: url(cursor.png) 16 16, auto !important;
+}
+
+.maplibregl-marker {
+  cursor: url(cursor.png) 16 16, auto !important;
+}
+
 .marker circle {
   transition-property: all;
   transition-duration: 0.5s;

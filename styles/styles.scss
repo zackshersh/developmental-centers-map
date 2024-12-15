@@ -1,5 +1,13 @@
 $marker-color: #c65656;
 
+.maplibregl-canvas {
+    cursor: url(cursor.png) 16 16, auto !important;
+}
+
+.maplibregl-marker {
+    cursor: url(cursor.png) 16 16, auto !important;
+}
+
 .marker {
 
     circle {
