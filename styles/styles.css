@@ -1,3 +1,31 @@
+.marker circle {
+  transition-property: all;
+  transition-duration: 0.5s;
+  fill: #c65656;
+}
+.marker .popup-text {
+  opacity: 0;
+  top: -12px;
+  left: 15px;
+  width: 300px;
+  position: absolute;
+  pointer-events: none;
+  color: #c65656;
+  font-weight: bold;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
 
+.container-hover-active .marker circle {
+  opacity: 0.2;
+  fill: black;
+}
+.container-hover-active .marker-focused circle {
+  opacity: 1;
+  fill: #c65656;
+}
+.container-hover-active .marker-focused .popup-text {
+  opacity: 1;
+}
 
 /*# sourceMappingURL=styles.css.map */

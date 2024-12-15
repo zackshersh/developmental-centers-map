@@ -9,7 +9,7 @@ class MapManager {
 
         this.map = new maplibregl.Map({
             container: 'map', // container id
-            style: 'https://api.maptiler.com/maps/a8c18bb5-c61e-48aa-9e7b-b47f838fa7b5/style.json?key=mFj1XfKRnWjJCieQrgjz', // style URL
+            style: 'https://api.maptiler.com/maps/a8c18bb5-c61e-48aa-9e7b-b47f838fa7b5/style.json?key=nn7h44OSrjCy5b2042uV', // style URL
             center: [0, 0], // starting position [lng, lat]
             zoom: 1, // starting zoom,
             maxBounds: this.bounds

@@ -27,7 +27,6 @@ class Marker {
         circle.setAttribute("cx",params.markerSize);
         circle.setAttribute("cy",params.markerSize);
         circle.setAttribute("r",params.markerSize);
-        circle.setAttribute("fill","red");
     
         svg.appendChild(circle);
         cont.appendChild(svg);
@@ -40,9 +39,9 @@ class Marker {
         p.classList.add("popup-text")
         p.textContent = this.data["Name"];
 
-        p.style.position = "absolute";
-        p.style.color = "red"
-        p.style.pointerEvents = "none"
+        // p.style.position = "absolute";
+        // p.style.color = "red"
+        // p.style.pointerEvents = "none"
         cont.appendChild(p);
 
         cont.addEventListener("mouseenter", (e) => {
