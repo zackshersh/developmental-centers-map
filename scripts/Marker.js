@@ -5,12 +5,18 @@ class Marker {
         this.pos = pos;
         this.index = index;
 
+        this.data = this.mapManager.data[this.index];
+
         this.elem = this.generateElem();
         this.maplibreMarker = this.createMarker();
+
     }
 
 
     generateElem(){
+
+        const cont = document.createElement("div");
+
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute("width", params.markerSize*2); 
         svg.setAttribute("height", params.markerSize*2);
@@ -22,12 +28,23 @@ class Marker {
         circle.setAttribute("fill","red");
     
         svg.appendChild(circle);
+        cont.appendChild(svg);
 
         svg.setAttribute("data-index", this.index);
+
+
+        // generating popup
+
+        let p = document.createElement("p");
+        p.textContent = this.data["Name"];
+
+        p.style.position = "absolute";
     
+        p.style.color = "red"
+        cont.appendChild(p);
 
     
-        return svg;
+        return cont;
     }
 
     createMarker(){
@@ -35,8 +52,8 @@ class Marker {
         // console.log(arr)
         this.maplibreMarker = new maplibregl.Marker({element: this.elem})
             .setLngLat(this.pos)
-            .addTo(this.mapManager.map)
+            .addTo(this.mapManager.map);
 
-
+        
     }
 }
