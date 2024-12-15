@@ -1,4 +1,10 @@
 
+function markerOnHover(e){
+
+}
+
+
+
 
 function generateMarker(){
     // const svg = document.createElementNS("svg");
@@ -22,7 +28,6 @@ function generateMarker(){
 
     return svg;
 }
-
 
 
 
@@ -63,5 +68,4 @@ function createMarkers(data, map){
 
     return markers;
 
-    console.log(`%c ${numInvalidCoordinates} INVALID COORDINATES`, "color: orange")
 }
