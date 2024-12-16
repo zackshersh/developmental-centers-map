@@ -15,14 +15,16 @@ class MapManager {
             maxBounds: this.bounds
         });
 
-        this.data = [];
 
+        this.data = [];
         this.markers = [];
 
         this.focusState = {
             markerIndex: null,
             mode: null
         }
+
+        this.interfaceManager = new InterfaceManager(this);
 
     }
 
@@ -31,6 +33,7 @@ class MapManager {
 
         this.generateMarkers();
     }
+
 
     generateMarkers(){
         this.data.forEach((location, i)=> {
@@ -69,6 +72,16 @@ class MapManager {
                 break;
         }
 
+    }
+
+    getFocusedData(){
+        if(this.focusState.mode == null || this.focusState.mode == "hover") return null;
+
+        let focusedData = this.data[this.focusState.markerIndex];
+
+        if(!focusedData) return null;
+
+        return focusedData;
     }
 
 
