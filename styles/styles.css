@@ -33,14 +33,14 @@
   opacity: 0.2;
   fill: black;
 }
-.container-hover-active .marker-focused {
+.container-hover-active .marker-focused, .container-hover-active .marker-selected {
   z-index: 10;
 }
-.container-hover-active .marker-focused circle {
+.container-hover-active .marker-focused circle, .container-hover-active .marker-selected circle {
   opacity: 1;
   fill: #c65656;
 }
-.container-hover-active .marker-focused .popup-text {
+.container-hover-active .marker-focused .popup-text, .container-hover-active .marker-selected .popup-text {
   opacity: 1;
   animation-name: text-transition-animation;
   animation-duration: 200ms;

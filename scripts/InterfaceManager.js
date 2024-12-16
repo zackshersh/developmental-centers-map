@@ -11,7 +11,8 @@ class InterfaceManager {
     }
 
     update(){
-        
+        let data = this.mapManager.getFocusedData();
+        console.log(data);
     }
 
 

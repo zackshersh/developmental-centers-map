@@ -49,6 +49,12 @@ class MapManager {
         })
     }
 
+    updateMarkers(){
+        this.markers.forEach((marker, i) => {
+            
+        })
+    }
+
     setFocusState(index, mode){
         console.log(index, mode);
 
@@ -59,17 +65,17 @@ class MapManager {
         switch(mode){
             case 'hover':
                 this.map._container.classList.add("container-hover-active");
-
                 break;
+
             case 'select':
-
+                this.interfaceManager.update();
                 break;
+
             case null:
                 this.map._container.classList.remove("container-hover-active");
                 this.map._container.classList.remove("container-select-active");
-
-
                 break;
+
         }
 
     }

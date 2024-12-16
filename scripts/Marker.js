@@ -39,21 +39,30 @@ class Marker {
         p.classList.add("popup-text")
         p.textContent = this.data["Name"];
 
-        // p.style.position = "absolute";
-        // p.style.color = "red"
-        // p.style.pointerEvents = "none"
         cont.appendChild(p);
 
+
+        // HOVER EVENTS
         cont.addEventListener("mouseenter", (e) => {
             cont.classList.add("marker-focused");
 
             this.mapManager.setFocusState(this.index, "hover");
         })
+
         cont.addEventListener("mouseleave", (e) => {
             cont.classList.remove("marker-focused");
 
             this.mapManager.setFocusState(null, null);
         })
+
+        
+        // CLICK EVENTS
+
+        cont.addEventListener("mousedown", (e) => {
+            cont.classList.add("marker-selected");
+            this.mapManager.setFocusState(this.index, "select");
+        })
+
 
 
 
