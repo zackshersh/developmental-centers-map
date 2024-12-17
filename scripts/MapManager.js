@@ -51,7 +51,14 @@ class MapManager {
 
     updateMarkers(){
         this.markers.forEach((marker, i) => {
-            
+
+            if(this.focusState.markerIndex && this.focusState.markerIndex == marker.index){
+                marker.setAsFocused();
+            } else {
+                // removing for previously focused markers
+                if(marker.isFocused) marker.setAsNotFocused();
+            }
+
         })
     }
 
@@ -66,7 +73,6 @@ class MapManager {
             case 'hover':
                 this.map._container.classList.add("container-hover-active");
                 break;
-
             case 'select':
                 this.interfaceManager.update();
                 break;
@@ -77,6 +83,8 @@ class MapManager {
                 break;
 
         }
+
+        this.updateMarkers();
 
     }
 
