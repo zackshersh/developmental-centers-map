@@ -77,3 +77,21 @@ $default-transition-duration: 200ms;
     }
 
 }
+
+#main-cont {
+    display: flex;
+    min-height: 100vh;
+}
+
+#map {
+    width: 100%;
+}
+
+#details-popup {
+    
+}
+ 
+
+.map-halfsize {
+    width: 50%
+}

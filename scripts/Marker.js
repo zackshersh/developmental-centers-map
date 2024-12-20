@@ -10,7 +10,7 @@ class Marker {
         this.elem = this.generateElem();
         this.maplibreMarker = this.createMarker();
 
-        this.isFocused = true;
+        this.isFocused = false;
 
     }
 
