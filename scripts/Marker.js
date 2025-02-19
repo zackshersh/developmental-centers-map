@@ -10,6 +10,8 @@ class Marker {
         this.elem = this.generateElem();
         this.maplibreMarker = this.createMarker();
 
+        this.isHovered = false;
+
     }
 
 
@@ -44,23 +46,43 @@ class Marker {
 
         // HOVER EVENTS
         cont.addEventListener("mouseenter", (e) => {
-            cont.classList.add("marker-focused");
 
-            this.mapManager.setFocusState(this.index, "hover");
+            this.isHovered = true;
+            this.update();
+
+            this.mapManager.aMarkerIsHovered();
+            // this.mapManager.updateState();
+            // cont.classList.add("marker-focused");
+
+            // this.mapManager.setFocusState(this.index, "hover");
+
+
         })
 
         cont.addEventListener("mouseleave", (e) => {
-            cont.classList.remove("marker-focused");
 
-            this.mapManager.setFocusState(null, null);
+            this.isHovered = false;
+            this.update();
+
+
+            this.mapManager.aMarkerIsNotHovered();
+            // this.mapManager.updateState();
+            // cont.classList.remove("marker-focused");
+
+            // this.mapManager.setFocusState(null, null);
         })
 
         
         // CLICK EVENTS
 
         cont.addEventListener("mousedown", (e) => {
-            cont.classList.add("marker-selected");
-            this.mapManager.setFocusState(this.index, "select");
+            // cont.classList.add("marker-selected");
+            // this.mapManager.setFocusState(this.index, "select");
+
+            this.mapManager.setSelectedMarker(this.index);
+            this.update();
+
+
         })
 
 
@@ -78,5 +100,13 @@ class Marker {
             .addTo(this.mapManager.map);
 
         
+    }
+
+    update(){
+        if(this.isHovered || this.mapManager.selectedMarker == this.index){
+            this.elem.classList.add("marker-focused");
+        } else {
+            this.elem.classList.remove("marker-focused");
+        }
     }
 }

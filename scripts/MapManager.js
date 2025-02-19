@@ -24,6 +24,9 @@ class MapManager {
             mode: null
         }
 
+        this.selectedMarker = null;
+        this.hoveredMarker = false;
+
         this.interfaceManager = new InterfaceManager(this);
 
     }
@@ -51,33 +54,61 @@ class MapManager {
 
     updateMarkers(){
         this.markers.forEach((marker, i) => {
-            
+            marker.update()
         })
     }
 
     setFocusState(index, mode){
-        console.log(index, mode);
+        // console.log(index, mode);
 
-        console.log(this.map._container)
+        // console.log(this.map._container)
 
-        this.focusState = { markerIndex: index, mode: mode};
+        // this.focusState = { markerIndex: index, mode: mode};
 
-        switch(mode){
-            case 'hover':
-                this.map._container.classList.add("container-hover-active");
-                break;
+        // switch(mode){
+        //     case 'hover':
+        //         this.map._container.classList.add("container-hover-active");
+        //         break;
 
-            case 'select':
-                this.interfaceManager.update();
-                break;
+        //     case 'select':
+        //         this
+        //         this.interfaceManager.update();
+        //         break;
 
-            case null:
-                this.map._container.classList.remove("container-hover-active");
-                this.map._container.classList.remove("container-select-active");
-                break;
+        //     case null:
+        //         this.map._container.classList.remove("container-hover-active");
+        //         this.map._container.classList.remove("container-select-active");
+        //         break;
 
+        // }
+
+    }
+
+    setSelectedMarker(index){
+        this.selectedMarker = index;
+
+        this.updateState();
+        this.updateMarkers();
+    }
+
+    aMarkerIsHovered(){
+        this.hasHoveredMarker = true;
+
+        this.updateState();
+    }
+    
+    aMarkerIsNotHovered(){
+        this.hasHoveredMarker = false;
+
+        this.updateState();
+    }
+
+    updateState(){
+        if(this.selectedMarker != null || this.hasHoveredMarker){
+            this.map._container.classList.add("container-hover-active");
+        } else {
+            this.map._container.classList.remove("container-hover-active");
         }
-
     }
 
     getFocusedData(){
