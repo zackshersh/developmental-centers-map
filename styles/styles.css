@@ -55,4 +55,17 @@
   }
 }
 
+#main-cont {
+  position: relative;
+}
+
+#details-popup {
+  z-index: 20;
+  background-color: white;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 /*# sourceMappingURL=styles.css.map */

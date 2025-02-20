@@ -11,8 +11,14 @@ class InterfaceManager {
     }
 
     update(){
-        let data = this.mapManager.getFocusedData();
+        let data = this.mapManager.getSelectedMarkerData();
         console.log(data);
+
+        let title = document.createElement("h1");
+        title.innerHTML = data["Original Name"]
+
+        this.elements.detailsPopup.appendChild(title)
+        console.log(this.elements.detailsPopup)
     }
 
 

@@ -79,7 +79,11 @@ class Marker {
             // cont.classList.add("marker-selected");
             // this.mapManager.setFocusState(this.index, "select");
 
-            this.mapManager.setSelectedMarker(this.index);
+            if(this.mapManager.selectedMarker == this.index){
+                this.mapManager.deselectMarker();
+            } else {
+                this.mapManager.setSelectedMarker(this.index);
+            }
             this.update();
 
 

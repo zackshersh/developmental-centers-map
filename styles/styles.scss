@@ -45,7 +45,7 @@ $default-transition-duration: 200ms;
     .marker {
         circle {
             opacity: 0.2;
-            fill: black
+            fill: black;
         }
     }
 
@@ -76,4 +76,17 @@ $default-transition-duration: 200ms;
         }
     }
 
+}
+
+#main-cont {
+    position: relative;
+}
+
+#details-popup {
+    z-index: 20;
+    background-color: white;
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }

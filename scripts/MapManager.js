@@ -89,6 +89,17 @@ class MapManager {
 
         this.updateState();
         this.updateMarkers();
+
+        this.interfaceManager.update();
+    }
+
+    deselectMarker(){
+        this.selectedMarker = null;
+
+        this.updateState();
+        this.updateMarkers();
+
+        this.interfaceManager.update();
     }
 
     aMarkerIsHovered(){
@@ -109,16 +120,16 @@ class MapManager {
         } else {
             this.map._container.classList.remove("container-hover-active");
         }
+
+
     }
 
-    getFocusedData(){
-        if(this.focusState.mode == null || this.focusState.mode == "hover") return null;
-
-        let focusedData = this.data[this.focusState.markerIndex];
-
-        if(!focusedData) return null;
-
-        return focusedData;
+    getSelectedMarkerData(){
+        if(this.selectedMarker != null){
+            return this.data[this.selectedMarker]
+        } else {
+            return null;
+        }
     }
 
 
