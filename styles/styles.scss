@@ -1,6 +1,21 @@
 $marker-color: #c65656;
 $default-transition-duration: 200ms;
 
+$primary-color: #555;
+
+* {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: "Helvetica", sans-serif;
+}
+
+h3 {
+    color: $primary-color;
+}
+p {
+    font-size: 12px;
+    color: $primary-color;
+}
 .maplibregl-canvas {
     cursor: url(cursor.png) 16 16, auto !important;
 }
@@ -24,7 +39,7 @@ $default-transition-duration: 200ms;
 
     .popup-text {
         opacity: 0;
-        top: -16px;
+        top: 0;
         left: 15px;
         width: 300px;
         position: absolute;
@@ -84,9 +99,15 @@ $default-transition-duration: 200ms;
 
 #details-popup {
     z-index: 20;
-    background-color: white;
     padding: 12px;
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.details-cont {
+    background-color: #fdfdfd;
+    width: 550px;
+    padding: 12px;
+    border-radius: 12px;
 }

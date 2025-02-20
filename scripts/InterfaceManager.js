@@ -11,13 +11,25 @@ class InterfaceManager {
     }
 
     update(){
+
+
+        this.elements.detailsPopup.innerHTML = "";
+
         let data = this.mapManager.getSelectedMarkerData();
         console.log(data);
 
-        let title = document.createElement("h1");
-        title.innerHTML = data["Original Name"]
+        if(!data) return;
 
-        this.elements.detailsPopup.appendChild(title)
+
+        let detailsCont = document.createElement("div");
+        detailsCont.classList.add("details-cont")
+        detailsCont.innerHTML = `
+            <h3>${data["Name"]}</h3>
+            <p>${data["Town"]}, ${data["State"]}</p>
+            <p>${data["Opened"]} - ${data["Closed"]}</p>
+        `
+
+        this.elements.detailsPopup.appendChild(detailsCont)
         console.log(this.elements.detailsPopup)
     }
 
